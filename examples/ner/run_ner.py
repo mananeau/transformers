@@ -78,6 +78,7 @@ MODEL_CLASSES = {
     "distilbert": (DistilBertConfig, DistilBertForTokenClassification, DistilBertTokenizer),
     "camembert": (CamembertConfig, CamembertForTokenClassification, CamembertTokenizer),
     "xlmroberta": (XLMRobertaConfig, XLMRobertaForTokenClassification, XLMRobertaTokenizer),
+    "albert": (AlbertConfig, AlbertForTokenClassification, AlbertTokenizer)
 }
 
 
