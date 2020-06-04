@@ -16,3 +16,5 @@
   - `num_train_steps`: 150000 
   - `num_warmup_steps`: 10000
   - `learning_rate`: 2e-5
+
+   More information on the [covid-berts](https://github.com/manueltonneau/covid-berts) repository. 
