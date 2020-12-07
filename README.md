@@ -58,8 +58,18 @@ To immediately use a model on a given text, we provide the `pipeline` API. Pipel
 >>> classifier('We are very happy to include pipeline into the transformers repository.')
 [{'label': 'POSITIVE', 'score': 0.9978193640708923}]
 ```
+<<<<<<< HEAD
 
 The second line of code downloads and caches the pretrained model used by the pipeline, the third line evaluates it on the given text. Here the answer is "positive" with a confidence of 99.8%.
+=======
+Upload your model:
+```shell
+transformers-cli upload ./path/to/pretrained_model_folder/
+
+# ^^ Upload folder containing weights/tokenizer/config. 
+# In this pretrained_model_folder, make sure the configuration file is entitled config.json.
+# saved via `.save_pretrained()`
+>>>>>>> cca51b729de51fe29bac9b96b8c8131fd70c2d35
 
 This is another example of pipeline used for that can extract question answers from some context:
 

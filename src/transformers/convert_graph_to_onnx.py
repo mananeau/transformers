@@ -57,6 +57,7 @@ class OnnxConverterArgumentParser(ArgumentParser):
             help="Framework for loading the model",
         )
         self.add_argument("--opset", type=int, default=11, help="ONNX opset to use")
+<<<<<<< HEAD
         self.add_argument(
             "--check-loading",
             action="store_true",
@@ -72,6 +73,11 @@ class OnnxConverterArgumentParser(ArgumentParser):
             action="store_true",
             help="Quantize the neural network to be run with int8",
         )
+=======
+        self.add_argument("--check-loading", action="store_true", help="Check ONNX is able to load the model")
+        self.add_argument("--use-external-format", action="store_true", help="Allow exporting model >= than 2Gb")
+        
+>>>>>>> cca51b729de51fe29bac9b96b8c8131fd70c2d35
         self.add_argument("output")
 
 
@@ -235,7 +241,11 @@ def load_graph_from_args(pipeline_name: str, framework: str, model: str, tokeniz
     print(f"Loading pipeline (model: {model}, tokenizer: {tokenizer})")
 
     # Allocate tokenizer and model
+<<<<<<< HEAD
     return pipeline(pipeline_name, model=model, tokenizer=tokenizer, framework=framework)
+=======
+    return pipeline("sentiment-analysis", model=model, tokenizer=tokenizer, framework=framework)
+>>>>>>> cca51b729de51fe29bac9b96b8c8131fd70c2d35
 
 
 def convert_pytorch(nlp: Pipeline, opset: int, output: Path, use_external_format: bool):
