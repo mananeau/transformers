@@ -23,7 +23,7 @@ import time
 
 import numpy as np
 
-from transformers import BertTokenizer, GPT2Tokenizer, RobertaTokenizer
+from transformers import BertTokenizer, GPT2Tokenizer, RobertaTokenizer, BertweetTokenizer
 
 
 logging.basicConfig(
@@ -51,6 +51,10 @@ def main():
         tokenizer = RobertaTokenizer.from_pretrained(args.tokenizer_name)
         bos = tokenizer.special_tokens_map["cls_token"]  # `<s>`
         sep = tokenizer.special_tokens_map["sep_token"]  # `</s>`
+    elif args.tokenizer_type == "bertweet":
+        tokenizer = BertweetTokenizer.from_pretrained(args.tokenizer_name)
+        bos = tokenizer.special_tokens_map["cls_token"]  # `<s>`
+        sep = tokenizer.special_tokens_map["sep_token"]
     elif args.tokenizer_type == "gpt2":
         tokenizer = GPT2Tokenizer.from_pretrained(args.tokenizer_name)
         bos = tokenizer.special_tokens_map["bos_token"]  # `<|endoftext|>`
