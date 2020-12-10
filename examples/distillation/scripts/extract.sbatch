@@ -9,7 +9,7 @@
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-user=mt4493@nyu.edu
-#SBATCH --output=slurm_binarize_data_distil-%j.out
+#SBATCH --output=slurm_extract_distil-%j.out
 
 COUNTRY_CODE=$1
 MODEL_TYPE=$2
