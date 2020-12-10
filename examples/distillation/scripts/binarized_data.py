@@ -84,7 +84,7 @@ def main():
     logger.info("Finished binarization")
     logger.info(f"{len(data)} examples processed.")
 
-    dp_file = f"{args.dump_file}.{args.tokenizer_name}.pickle"
+    dp_file = f"{args.dump_file}.pickle"
     vocab_size = tokenizer.vocab_size
     if vocab_size < (1 << 16):
         rslt_ = [np.uint16(d) for d in rslt]
