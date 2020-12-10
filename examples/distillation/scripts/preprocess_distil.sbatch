@@ -15,6 +15,7 @@ COUNTRY_CODE=$1
 DATA_FOLDER=$2
 MODEL_TYPE=$3
 MODEL_NAME=$4
+VOCAB_SIZE=$5
 
 SLASH=/
 if [[ ${MODEL_NAME} == *"/"* ]]; then
@@ -52,8 +53,10 @@ if [ ! -f ${DUMP_PATH}/token_counts_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.p
   echo "Counting tokens"
   python3 ${CODE_PATH}/token_counts.py \
   --data_file ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle \
-  --token_counts_dump ${DUMP_PATH}/token_counts_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle
+  --token_counts_dump ${DUMP_PATH}/token_counts_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle \
+  --vocab_size ${VOCAB_SIZE}
   echo "Done counting tokens"
 fi
+
 
 
