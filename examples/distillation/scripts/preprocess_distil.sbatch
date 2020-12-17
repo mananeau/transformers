@@ -45,15 +45,15 @@ if [ ! -f ${DUMP_PATH}/init/tf_${MODEL_NAME_WITHOUT_SLASH}.pth ]; then
   echo "Done building init checkpoint"
 fi
 
-#if [ ! -f ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ]; then
-#  echo "Starting to binarize data"
-#  python3 ${CODE_PATH}/binarized_data.py \
-#  --file_path ${DATA_PATH}/tweets_${DATA_FOLDER}.txt \
-#  --tokenizer_type ${MODEL_TYPE}\
-#  --tokenizer_name ${MODEL_NAME}\
-#  --dump_file ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}
-#  echo "Done binarizing data"
-#fi
+if [ ! -f ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ]; then
+  echo "Starting to binarize data"
+  python3 ${CODE_PATH}/binarized_data.py \
+  --file_path ${DATA_PATH}/tweets_${DATA_FOLDER}.txt \
+  --tokenizer_type ${MODEL_TYPE}\
+  --tokenizer_name ${MODEL_NAME}\
+  --dump_file ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}
+  echo "Done binarizing data"
+fi
 #
 #if [ ! -f ${DUMP_PATH}/token_counts_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ]; then
 #  echo "Counting tokens"
