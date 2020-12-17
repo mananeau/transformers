@@ -24,9 +24,15 @@ else
   MODEL_NAME_WITHOUT_SLASH=${MODEL_NAME}
 fi
 
-DATA_PATH=/scratch/mt4493/twitter_labor/twitter_labor_data/data/pretraining/${COUNTRY_CODE}
+DATA_PATH=/scratch/mt4493/twitter_labor/twitter-labor-data/data/pretraining/${COUNTRY_CODE}
 CODE_PATH=/scratch/mt4493/twitter_labor/code/repos_annexe/transformers/examples/distillation/scripts
 DUMP_PATH=${DATA_PATH}/distillation
+
+module purge
+module load anaconda3/2019.10
+source /scratch/mt4493/twitter_labor/code/envs/experimental_env/bin/activate
+echo "virtualenv activated"
+
 
 # if not exist, build init checkpoint
 mkdir -p ${DUMP_PATH}/init
