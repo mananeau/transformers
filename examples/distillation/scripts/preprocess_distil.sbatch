@@ -49,11 +49,12 @@ if [ ! -f ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ];
   echo "Starting to binarize data"
   for filename in ${DATA_PATH}/${DATA_FOLDER}/*; do
     echo "binarizing ${filename}"
+    basename=$(basename ${filename})
     python3 ${CODE_PATH}/binarized_data.py \
     --file_path ${filename} \
     --tokenizer_type ${MODEL_TYPE}\
     --tokenizer_name ${MODEL_NAME}\
-    --dump_file ${DUMP_PATH}/${filename}
+    --dump_file ${DUMP_PATH}/${basename}
   done
 fi
 #
