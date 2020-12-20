@@ -3,7 +3,7 @@
 #SBATCH --job-name=preprocessing_distil
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=200GB
+#SBATCH --mem=20GB
 #SBATCH --time=72:00:00
 #SBATCH --gres=gpu:0
 #SBATCH --mail-type=BEGIN
@@ -47,12 +47,14 @@ fi
 
 if [ ! -f ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ]; then
   echo "Starting to binarize data"
-  python3 ${CODE_PATH}/binarized_data.py \
-  --file_path ${DATA_PATH}/tweets_${DATA_FOLDER}.txt \
-  --tokenizer_type ${MODEL_TYPE}\
-  --tokenizer_name ${MODEL_NAME}\
-  --dump_file ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}
-  echo "Done binarizing data"
+  for filename in ${DATA_PATH}/${DATA_FOLDER}; do
+    echo "binarizing ${filename}"
+    python3 ${CODE_PATH}/binarized_data.py \
+    --file_path ${filename} \
+    --tokenizer_type ${MODEL_TYPE}\
+    --tokenizer_name ${MODEL_NAME}\
+    --dump_file ${DUMP_PATH}/${filename}
+  done
 fi
 #
 #if [ ! -f ${DUMP_PATH}/token_counts_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ]; then
