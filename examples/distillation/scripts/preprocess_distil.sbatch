@@ -47,7 +47,7 @@ fi
 
 if [ ! -f ${DUMP_PATH}/dump_${DATA_FOLDER}_${MODEL_NAME_WITHOUT_SLASH}.pickle ]; then
   echo "Starting to binarize data"
-  for filename in ${DATA_PATH}/${DATA_FOLDER}; do
+  for filename in ${DATA_PATH}/${DATA_FOLDER}/*; do
     echo "binarizing ${filename}"
     python3 ${CODE_PATH}/binarized_data.py \
     --file_path ${filename} \
